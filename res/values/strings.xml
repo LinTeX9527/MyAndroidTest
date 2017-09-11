@@ -1,0 +1,27 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+
+    <string name="app_name">安卓测试</string>
+    <string name="hello_world">Hello world!</string>
+    <string name="action_settings">Settings</string>
+    <string name="action_find">查找</string>
+    <string name="action_back">退后</string>
+    <string name="action_new">新建</string>
+    
+    <string name="close_and_exit">退出应用</string>
+    <string name="empty_description">空的描述，等待添加</string>
+    <string name="desc_simpleadapter">SimpleAdapter 比 ArrayAdapter更加灵活，定制性更强，需要重点掌握</string>
+    
+    <string name="all_test_home">单击列表跳转到测试项</string>
+    
+    <!-- AsyncTaskTestActivity 中使用的文本资源  -->
+    <string name="getwebpage">访问网页</string>
+    
+    <!-- 各个活动的描述性语句 -->
+    <string name="test_autocomplete">测试AutoCompleteTextView</string>
+    <string name="test_image">测试ImageView</string>
+    <string name="test_listview">测试ListView和ArrayAdapter</string>
+    <string name="test_simpleadapter">测试ListView和SimpleAdapter</string>
+    <string name="test_asynctask">测试AsyncTask</string>
+
+</resources>
