@@ -9,6 +9,9 @@ import android.util.Log;
  * HashMap<Activity, String> 每一个元素分别代表一个Activity和对应的描述，
  * 通过这个集合来管理所有的Activity，可以一键关闭所有的活动
  * 
+ * 自从加入了TestPageActivity.java，这个文件就没有必要了。
+ * 对于测试程序而言，只需要一个HomePage提供所有测试项的列表，单击列表跳转，完成单项测试就回到HomePage就行，
+ * 不需要管理所有活动，但是这个ActivityCollector类可能在其他的地方有用。
  * @author LinTeX9527
  * @since v0.1
  * @see BaseActivity

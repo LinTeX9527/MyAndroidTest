@@ -4,11 +4,8 @@ import java.util.ArrayList;
 import java.util.List;
 
 import android.app.ActionBar;
-import android.content.Intent;
 import android.os.Bundle;
 import android.view.KeyEvent;
-import android.view.Menu;
-import android.view.MenuItem;
 import android.view.View;
 import android.view.View.OnClickListener;
 import android.widget.ArrayAdapter;
@@ -225,53 +222,6 @@ public class AutoCompleteTextViewTestActivity extends BaseActivity {
 			}
 		});
     }
-
-
-    /**
-     * 填充 XML 布局资源
-     * 资源的定义就是菜单项的定义
-     * 
-     * 菜单项最后不要用图标，除非是图标的用意很明确，否则显示文字也挺好的。
-     */
-    @Override
-    public boolean onCreateOptionsMenu(Menu menu) {
-        // Inflate the menu; this adds items to the action bar if it is present.
-        getMenuInflater().inflate(R.menu.my_action_bar, menu);
-        return true;
-    }
-
-    /**
-     * 选中ActionBar中的菜单项，将会触发下面的选中事件
-     */
-    @Override
-    public boolean onOptionsItemSelected(MenuItem item) {
-        // Handle action bar item clicks here. The action bar will
-        // automatically handle clicks on the Home/Up button, so long
-        // as you specify a parent activity in AndroidManifest.xml.
-        int id = item.getItemId();
-        if (id == R.id.action_settings) {
-        	Toast.makeText(getBaseContext(), "设置", Toast.LENGTH_SHORT).show();
-            return true;
-        }
-        
-        if (id == R.id.action_find){
-        	Toast.makeText(getBaseContext(), "查找", Toast.LENGTH_SHORT).show();
-        	return true;
-        }
-        
-        if (id == R.id.action_new){
-        	// 启动一个新的 Activity
-        	Intent intent = new Intent(AutoCompleteTextViewTestActivity.this, ImageTestActivity.class);
-        	startActivity(intent);
-        	return true;
-        }
-        if (id == R.id.action_back){
-        	startActivity(new Intent("com.lintex9527.network.AsyncTaskTestActivity"));
-        }
-        
-        return super.onOptionsItemSelected(item);
-    }
-
 
 	@Override
 	public boolean onKeyDown(int keyCode, KeyEvent event) {

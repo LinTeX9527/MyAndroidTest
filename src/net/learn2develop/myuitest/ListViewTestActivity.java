@@ -1,13 +1,9 @@
 package net.learn2develop.myuitest;
 
-import android.content.Intent;
 import android.os.Bundle;
-import android.view.Menu;
-import android.view.MenuItem;
 import android.view.View;
 import android.widget.AdapterView;
 import android.widget.AdapterView.OnItemClickListener;
-import android.widget.AdapterView.OnItemSelectedListener;
 import android.widget.ArrayAdapter;
 import android.widget.ListView;
 import android.widget.TextView;
@@ -48,38 +44,40 @@ public class ListViewTestActivity extends BaseActivity {
 		myListView.setChoiceMode(ListView.CHOICE_MODE_SINGLE);
 		
 		
+		
 		myListView.setOnItemClickListener(new OnItemClickListener() {
 
 			@Override
 			public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
 				TextView tempTextView = (TextView) view;
 				if(tempTextView != null){
+					// 当然是这部分有效。恰好这里的View就是 android.R.layout.simple_list_item_checked，就代表那个TextView，
+					// 但是自定义控件就有可能不是 TextView。
 					Toast.makeText(getBaseContext(), "点击的文本是 : " + tempTextView.getText().toString(), Toast.LENGTH_SHORT).show();
-					
-//					startActivity(new Intent(ListViewTestActivity.this, 
-//											ActivityCollector.getActivity(tempTextView.getText().toString())));
 				} else {
 					Toast.makeText(getBaseContext(), "理解错了，原来这个 View 不是承载item的View", Toast.LENGTH_SHORT).show();
 				}
-				//startActivity(new Intent(ListViewTestActivity.this, SimpleAdapterTestActivity.class));
 			}
-			
 		});
 		
-		myListView.setOnItemSelectedListener(new OnItemSelectedListener() {
-
-			@Override
-			public void onItemSelected(AdapterView<?> parent, View view,
-					int position, long id) {
-				// TODO Auto-generated method stub
-			}
-
-			@Override
-			public void onNothingSelected(AdapterView<?> parent) {
-				// TODO Auto-generated method stub
-				
-			}
-		});
+		/**
+		 * 为什么选中单项却没有触发事件呢？
+		 * 似乎这个监听器并没有用，更为常用的是上面的 setOnItemClickListener()
+		 * 2017-09-11 21:45
+		 */
+//		myListView.setOnItemSelectedListener(new OnItemSelectedListener() {
+//
+//			@Override
+//			public void onItemSelected(AdapterView<?> parent, View view,
+//					int position, long id) {
+//				Toast.makeText(ListViewTestActivity.this, "选中了" + data[position], Toast.LENGTH_SHORT).show();
+//			}
+//
+//			@Override
+//			public void onNothingSelected(AdapterView<?> parent) {
+//				Toast.makeText(ListViewTestActivity.this, "选中了nobody", Toast.LENGTH_SHORT).show();
+//			}
+//		});
 	}
 	
 	
@@ -90,33 +88,13 @@ public class ListViewTestActivity extends BaseActivity {
 							"吴京"};
 	}
 
-	@Override
-	public boolean onCreateOptionsMenu(Menu menu) {
-		getMenuInflater().inflate(R.menu.my_action_bar, menu);
-		return true;
-	}
 
 	@Override
-	public boolean onOptionsItemSelected(MenuItem item) {
-		int id = item.getItemId();
-		
-		switch(id){
-		
-		case R.id.action_new:
-			Toast.makeText(getBaseContext(), "新建", Toast.LENGTH_SHORT).show();
-			startActivity(new Intent("net.learn2develop.myuitest.SimpleAdapterTestActivity"));
-			break;
-			
-		case R.id.action_back:
-			startActivity(new Intent("net.learn2develop.myuitest.SimpleAdapterTestActivity"));
-			break;
-		default:
-			break;
-		}
-		
-		return true;
+	protected void onDestroy() {
+		super.onDestroy();
+		ActivityCollector.removeActivity(ListViewTestActivity.this);
 	}
-
+	
 	
 	
 }

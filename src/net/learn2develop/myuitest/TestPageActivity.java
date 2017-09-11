@@ -2,13 +2,13 @@ package net.learn2develop.myuitest;
 
 import java.util.ArrayList;
 import java.util.HashMap;
-import java.util.Iterator;
 import java.util.List;
-import java.util.Map;
 
 import android.app.Activity;
 import android.content.Intent;
 import android.os.Bundle;
+import android.view.Menu;
+import android.view.MenuItem;
 import android.view.View;
 import android.widget.AdapterView;
 import android.widget.AdapterView.OnItemClickListener;
@@ -18,6 +18,8 @@ import android.widget.TextView;
 import android.widget.Toast;
 
 /**
+ * 
+ * 这个就是我的HomePage，从这里选择测试单元
  * 测试页面，所有测试项的集合，单击列表中的某一项就可以直接跳转到对应的测试项
  * 
  * @author LinTeX9527
@@ -107,5 +109,43 @@ public class TestPageActivity extends Activity {
 				}
 			}
 		}
+	}
+
+	/**
+	 * 填充ActionBar
+	 */
+	@Override
+	public boolean onCreateOptionsMenu(Menu menu) {
+		getMenuInflater().inflate(R.menu.my_action_bar, menu);
+		return true;
+	}
+
+	/**
+	 * 自定义ActionBar中各个按钮的响应事件
+	 */
+	@Override
+	public boolean onOptionsItemSelected(MenuItem item) {
+		int id = item.getItemId();
+		switch (id) {
+		case R.id.action_new:
+			Toast.makeText(TestPageActivity.this, "暂时不新建", Toast.LENGTH_SHORT).show();
+			break;
+
+		case R.id.action_back:
+			Toast.makeText(TestPageActivity.this, "暂时不用后退", Toast.LENGTH_SHORT).show();
+			break;
+			
+		case R.id.action_find:
+			Toast.makeText(TestPageActivity.this, "查找什么呢？", Toast.LENGTH_SHORT).show();
+			break;
+			
+		case R.id.action_settings:
+			Toast.makeText(TestPageActivity.this, "暂时不需要设置选项", Toast.LENGTH_SHORT).show();
+			break;
+			
+		default:
+			break;
+		}
+		return true;
 	}
 }

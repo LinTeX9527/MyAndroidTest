@@ -3,15 +3,11 @@
  */
 package net.learn2develop.myuitest;
 
-import android.content.Intent;
 import android.graphics.Color;
 import android.os.Bundle;
-import android.view.Menu;
-import android.view.MenuItem;
 import android.view.View;
 import android.view.View.OnClickListener;
 import android.widget.ImageView;
-import android.widget.Toast;
 
 /**
  * @author LinTeX9527
@@ -43,7 +39,6 @@ public class ImageTestActivity extends BaseActivity {
 			
 			@Override
 			public void onClick(View v) {
-				// TODO Auto-generated method stub
 				count ++;
 				if (count >= 2){
 					count = 0;
@@ -55,29 +50,6 @@ public class ImageTestActivity extends BaseActivity {
 				}
 			}
 		});
-	}
-
-	@Override
-	public boolean onCreateOptionsMenu(Menu menu) {
-		getMenuInflater().inflate(R.menu.my_action_bar, menu);
-		return true;
-	}
-
-	@Override
-	public boolean onOptionsItemSelected(MenuItem item) {
-		int id = item.getItemId();
-		switch (id) {
-		case R.id.action_new:
-			Toast.makeText(ImageTestActivity.this, "新建一个", Toast.LENGTH_SHORT).show();
-			startActivity(new Intent(ImageTestActivity.this, ListViewTestActivity.class));
-			//startActivity(new Intent(ImageTestActivity.this, SimpleAdapterTestActivity.class));
-			break;
-
-		default:
-			break;
-		}
-		
-		return true;
 	}
 
 }

@@ -33,7 +33,7 @@ public class AsyncTaskTestActivity extends BaseActivity {
 		ActivityCollector.modifyDescription(this, description);
 		
 		progressBar = (ProgressBar) findViewById(R.id.progressBar);
-		progressBar.setProgress(50);
+		progressBar.setProgress(0);
 		tvShowWebPage = (TextView) findViewById(R.id.tvShowWebPage);
 		
 		// 单击按钮访问百度首页，将获取的文本信息填充到 TextView 中。
@@ -41,7 +41,8 @@ public class AsyncTaskTestActivity extends BaseActivity {
 			
 			@Override
 			public void onClick(View v) {
-				readURL("https://www.baidu.com");
+				progressBar.setProgress(0);
+				readURL("https://www.bilibili.com");
 			}
 		});
 	}
