@@ -27,5 +27,6 @@
     <string name="test_simpleadapter">测试ListView和SimpleAdapter</string>
     <string name="test_asynctask">测试AsyncTask</string>
     <string name="test_gallery">测试Gallery</string>
+    <string name="test_imageswitcher">测试ImageSwitcher</string>
 
 </resources>

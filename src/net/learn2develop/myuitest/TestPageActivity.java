@@ -98,6 +98,12 @@ public class TestPageActivity extends Activity {
 		map6.put(ITEM_DESCRIPTION, getResources().getString(R.string.test_gallery));
 		map6.put(ITEM_ACTION, "net.learn2develop.myuitest.GalleryTestActivity");
 		data.add(map6);
+		
+		// ≤‚ ‘œÓ ImageSwitcher
+		HashMap<String, Object> map7 = new HashMap<String, Object>();
+		map7.put(ITEM_DESCRIPTION, getResources().getString(R.string.test_imageswitcher));
+		map7.put(ITEM_ACTION, "net.learn2develop.myuitest.ImageSwitcherTestActivity");
+		data.add(map7);
 	}
 	
 	

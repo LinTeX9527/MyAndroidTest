@@ -34,7 +34,7 @@
 		<!-- 测试自动补全控件 AutoCompleteTextView，它是 EditText 的子类 -->
         <activity
             android:name="net.learn2develop.myuitest.AutoCompleteTextViewTestActivity"
-            android:label="@string/app_name" 
+            android:label="@string/test_autocomplete" 
             android:launchMode="singleInstance"
             >
             <intent-filter>
@@ -94,7 +94,7 @@
 		<!-- Gallery 测试 -->
 		<activity 
             android:name="net.learn2develop.myuitest.GalleryTestActivity"
-            android:label="@string/test_simpleadapter"
+            android:label="@string/test_gallery"
             android:launchMode="singleInstance"
             >
             
@@ -105,7 +105,23 @@
             </intent-filter>
             
         </activity>			
+
+		<!-- 测试ImageSwitcher -->
+		<activity 
+            android:name="net.learn2develop.myuitest.ImageSwitcherTestActivity"
+            android:label="@string/test_imageswitcher"
+            android:launchMode="singleInstance"
+            >
+            
+            <intent-filter >
+                <action android:name="net.learn2develop.myuitest.ImageSwitcherTestActivity"/>
+                
+                <category android:name="android.intent.category.DEFAULT"/>
+            </intent-filter>
+            
+        </activity>				
 		
+		<!-- 测试异步工作 AsyncTask -->
 		<activity 
             android:name="com.lintex9527.network.AsyncTaskTestActivity"
             android:label="@string/test_asynctask"
