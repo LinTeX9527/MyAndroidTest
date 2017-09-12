@@ -18,6 +18,7 @@
         android:theme="@style/AppTheme" >
         
 
+        <!-- 所有的测试项列在这个页面 -->
 		<activity
             android:name="net.learn2develop.myuitest.TestPageActivity"
             android:label="@string/app_name" 
@@ -30,7 +31,7 @@
             </intent-filter>
         </activity>        
 
-		
+		<!-- 测试自动补全控件 AutoCompleteTextView，它是 EditText 的子类 -->
         <activity
             android:name="net.learn2develop.myuitest.AutoCompleteTextViewTestActivity"
             android:label="@string/app_name" 
@@ -43,6 +44,8 @@
             </intent-filter>
         </activity>
         
+        
+        <!-- 测试ImageView控件的使用 -->
         <activity 
             android:name="net.learn2develop.myuitest.ImageTestActivity"
             android:label="@string/test_image"
@@ -57,6 +60,8 @@
             
         </activity>
 
+        
+        <!-- 测试ListView基本用法 -->
 		<activity 
             android:name="net.learn2develop.myuitest.ListViewTestActivity"
             android:label="@string/test_listview"
@@ -71,6 +76,7 @@
             
         </activity>
         
+		<!-- 测试 SimpleAdapter -->
 		<activity 
             android:name="net.learn2develop.myuitest.SimpleAdapterTestActivity"
             android:label="@string/test_simpleadapter"
@@ -85,6 +91,21 @@
             
         </activity>		
 
+		<!-- Gallery 测试 -->
+		<activity 
+            android:name="net.learn2develop.myuitest.GalleryTestActivity"
+            android:label="@string/test_simpleadapter"
+            android:launchMode="singleInstance"
+            >
+            
+            <intent-filter >
+                <action android:name="net.learn2develop.myuitest.GalleryTestActivity"/>
+                
+                <category android:name="android.intent.category.DEFAULT"/>
+            </intent-filter>
+            
+        </activity>			
+		
 		<activity 
             android:name="com.lintex9527.network.AsyncTaskTestActivity"
             android:label="@string/test_asynctask"

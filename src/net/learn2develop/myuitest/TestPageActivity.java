@@ -92,6 +92,12 @@ public class TestPageActivity extends Activity {
 		map5.put(ITEM_DESCRIPTION, getResources().getString(R.string.test_asynctask));
 		map5.put(ITEM_ACTION, "com.lintex9527.network.AsyncTaskTestActivity");
 		data.add(map5);
+		
+		// ≤‚ ‘œÓ Gallery
+		HashMap<String, Object> map6 = new HashMap<String, Object>();
+		map6.put(ITEM_DESCRIPTION, getResources().getString(R.string.test_gallery));
+		map6.put(ITEM_ACTION, "net.learn2develop.myuitest.GalleryTestActivity");
+		data.add(map6);
 	}
 	
 	

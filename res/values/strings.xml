@@ -17,11 +17,15 @@
     <!-- AsyncTaskTestActivity 中使用的文本资源  -->
     <string name="getwebpage">访问网页</string>
     
+    <!-- GalleryTestActivity 中使用的文本资源 -->
+    <string name="photo_desc">妹子图</string>
+    
     <!-- 各个活动的描述性语句 -->
     <string name="test_autocomplete">测试AutoCompleteTextView</string>
     <string name="test_image">测试ImageView</string>
     <string name="test_listview">测试ListView和ArrayAdapter</string>
     <string name="test_simpleadapter">测试ListView和SimpleAdapter</string>
     <string name="test_asynctask">测试AsyncTask</string>
+    <string name="test_gallery">测试Gallery</string>
 
 </resources>
