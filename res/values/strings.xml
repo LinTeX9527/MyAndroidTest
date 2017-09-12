@@ -12,7 +12,7 @@
     <string name="empty_description">空的描述，等待添加</string>
     <string name="desc_simpleadapter">SimpleAdapter 比 ArrayAdapter更加灵活，定制性更强，需要重点掌握</string>
     
-    <string name="all_test_home">单击列表跳转到测试项</string>
+    <string name="all_test_home">测试菜单</string>
     
     <!-- AsyncTaskTestActivity 中使用的文本资源  -->
     <string name="getwebpage">访问网页</string>

@@ -30,7 +30,16 @@ public class TestPageActivity extends Activity {
 	public final static String ITEM_ACTION = "ACTION";
 	
 	private ListView lvAllItem = null;
+	/**
+	 * 这个 data 表示所有的测试项目
+	 * 其中的每一个HashMap 表示一个测试项目的信息：
+	 * 1、String description 对测试项目的描述
+	 * 2、String action 测试项目Activity 的action
+	 * 
+	 */
 	private List<HashMap<String, Object>> data = null;
+	// 标记每一个测试项加入到这个列表中的序号
+	private static int index = 0;
 	
 	@Override
 	protected void onCreate(Bundle savedInstanceState) {
@@ -50,66 +59,77 @@ public class TestPageActivity extends Activity {
 			@Override
 			public void onItemClick(AdapterView<?> parent, View view,
 					int position, long id) {
-//				Toast.makeText(TestPageActivity.this, "点击的是：" + view.getClass().toString(), Toast.LENGTH_SHORT).show();
 				
-				TextView lbl = (TextView)view.findViewById(R.id.tvDesc);
-				Toast.makeText(TestPageActivity.this, "点击的是：" + lbl.getText().toString(), Toast.LENGTH_SHORT).show();
-				startTestItem(lbl.getText().toString());
+				// 第一个版本启动测试项的方法
+//				TextView lbl = (TextView)view.findViewById(R.id.tvDesc);
+//				startTestItem(lbl.getText().toString());
+
+				// 第二个版本启动测试项的方法
+				startTestItem(position);
 			}
 		});
 	}
 	
 	protected void initData(){
+	
 		data = new ArrayList<HashMap<String, Object>>();
+		
+		/**
+		 * 如果没有屏蔽 index=0，那么可以看到每次回到测试菜单页时，序号都增加了，说明每次都有Activity的 onCreate()，对应的应该
+		 * 也发生了onDestroy()事件。需要增加Activity生命周期，在销毁TestPageActivity之前通过 Bundle 保存菜单项，
+		 * 在回到 TestPageActivity中恢复菜单项 data。
+		 * 
+		 * 当然，下面归零index，可以暂时解决这个问题，但是绝对不完美。
+		 */
+		index = 0;
 		
 		// 经过测试，下面不能使用同一个 map 进行添加，而是每一测试项对应一个map对象。
 		// 测试项 AutoCompleteTextView
-		HashMap<String, Object> map = new HashMap<String, Object>();
-		map.put(ITEM_DESCRIPTION, getResources().getString(R.string.test_autocomplete));
-		map.put(ITEM_ACTION, "net.learn2develop.myuitest.AutoCompleteTextViewTestActivity");
-		data.add(map);
+		addTestItem(R.string.test_autocomplete, "net.learn2develop.myuitest.AutoCompleteTextViewTestActivity");
 		
 		// 测试项 ImageTest
-		HashMap<String, Object> map2 = new HashMap<String, Object>();
-		map2.put(ITEM_DESCRIPTION, getResources().getString(R.string.test_image));
-		map2.put(ITEM_ACTION, "net.learn2develop.myuitest.ImageTestActivity");
-		data.add(map2);
+		addTestItem(R.string.test_image, "net.learn2develop.myuitest.ImageTestActivity");
 
 		// 测试项 ListView
-		HashMap<String, Object> map3 = new HashMap<String, Object>();
-		map3.put(ITEM_DESCRIPTION, getResources().getString(R.string.test_listview));
-		map3.put(ITEM_ACTION, "net.learn2develop.myuitest.ListViewTestActivity");
-		data.add(map3);
+		addTestItem(R.string.test_listview, "net.learn2develop.myuitest.ListViewTestActivity");
 		
 		// 测试项 SimpleAdapter
-		HashMap<String, Object> map4 = new HashMap<String, Object>();
-		map4.put(ITEM_DESCRIPTION, getResources().getString(R.string.test_simpleadapter));
-		map4.put(ITEM_ACTION, "net.learn2develop.myuitest.SimpleAdapterTestActivity");
-		data.add(map4);
+		addTestItem(R.string.test_simpleadapter, "net.learn2develop.myuitest.SimpleAdapterTestActivity");
 		
 		// 测试项 AsyncTask
-		HashMap<String, Object> map5 = new HashMap<String, Object>();
-		map5.put(ITEM_DESCRIPTION, getResources().getString(R.string.test_asynctask));
-		map5.put(ITEM_ACTION, "com.lintex9527.network.AsyncTaskTestActivity");
-		data.add(map5);
+		addTestItem(R.string.test_asynctask, "com.lintex9527.network.AsyncTaskTestActivity");
 		
 		// 测试项 Gallery
-		HashMap<String, Object> map6 = new HashMap<String, Object>();
-		map6.put(ITEM_DESCRIPTION, getResources().getString(R.string.test_gallery));
-		map6.put(ITEM_ACTION, "net.learn2develop.myuitest.GalleryTestActivity");
-		data.add(map6);
+		addTestItem(R.string.test_gallery, "net.learn2develop.myuitest.GalleryTestActivity");
 		
 		// 测试项 ImageSwitcher
-		HashMap<String, Object> map7 = new HashMap<String, Object>();
-		map7.put(ITEM_DESCRIPTION, getResources().getString(R.string.test_imageswitcher));
-		map7.put(ITEM_ACTION, "net.learn2develop.myuitest.ImageSwitcherTestActivity");
-		data.add(map7);
+		addTestItem(R.string.test_imageswitcher, "net.learn2develop.myuitest.ImageSwitcherTestActivity");
+		
+		// 测试项 GridView
+		addTestItem(R.string.test_gridview, "net.learn2develop.myuitest.GridViewTestActivity");
+		
 	}
 	
+	protected void addTestItem(int idDescription, String action){
+		HashMap<String, Object> mapx = new HashMap<String, Object>();
+		// 在列表中显示每一个测试item的描述性文本，前面加入序号，例如：
+		// 1、 测试ListView
+		// 2、 测试ImageView
+		mapx.put(ITEM_DESCRIPTION, "" + (++index) +  "、 " +getResources().getString(idDescription));
+		mapx.put(ITEM_ACTION, action);
+		data.add(mapx);
+	}
 	
+
 	/**
-	 * 传入测试项的description进而启动这个测试项
+	 * <p>传入测试项的description进而启动这个测试项 </p>
+	 * 
+	 * 第一个版本中采用，每个测试项的描述性文本都是唯一的，想通过这个方法在ListView的 onItemClickListener() 中确定测试项是哪一个
+	 * 后来需要在列表中加入序号，所以描述性文本前面加入了其他的字符，不方便。改进版本是通过序号启动测试项。
 	 * @param description
+	 * @since v0.1
+	 * @deprecated
+	 * 
 	 */
 	protected void startTestItem(String description) {
 		if (description != null){
@@ -120,6 +140,16 @@ public class TestPageActivity extends Activity {
 					startActivity(new Intent(map.get(ITEM_ACTION).toString()));
 				}
 			}
+		}
+	}
+	
+	/**
+	 * 传入测试项的序号进而启动这个测试项
+	 * @param itemindex
+	 */
+	protected void startTestItem(int itemindex){
+		if (itemindex >= 0 && itemindex < data.size()){
+			startActivity(new Intent(data.get(itemindex).get(ITEM_ACTION).toString()));
 		}
 	}
 
