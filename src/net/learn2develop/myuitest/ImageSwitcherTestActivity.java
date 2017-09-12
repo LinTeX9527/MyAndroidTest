@@ -43,7 +43,7 @@ public class ImageSwitcherTestActivity extends Activity implements ViewFactory{
 	};
 	
 	private ImageSwitcher imageSwitcher;
-	//static int oldposition = 0;
+	static int oldposition = 0;
 	
 	
 	@Override
@@ -72,13 +72,11 @@ public class ImageSwitcherTestActivity extends Activity implements ViewFactory{
 			public void onItemClick(AdapterView<?> parent, View view,
 					int position, long id) {
 				
-				
-				imageSwitcher.setImageResource(imageIDs[position]);
-				
-//				if (position != oldposition){
-//					imageSwitcher.setImageResource(imageIDs[position]);
-//					oldposition = position;
-//				}
+				// 观察到点击同一张图片也会切换，这样浪费资源，所以应该加一个条件判断，只有不是同一张图片才会切换。
+				if (position != oldposition){
+					imageSwitcher.setImageResource(imageIDs[position]);
+					oldposition = position;
+				}
 			}
 		});
 		
