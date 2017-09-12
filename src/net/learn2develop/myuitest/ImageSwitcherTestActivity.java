@@ -58,8 +58,10 @@ public class ImageSwitcherTestActivity extends Activity implements ViewFactory{
 		// 如果不设定 Factory，就需要手动添加两个view，参见 setFactory() 方法说明。
 		imageSwitcher.setFactory(this);
 		
-		imageSwitcher.setInAnimation(AnimationUtils.loadAnimation(this, android.R.anim.fade_in));
-		imageSwitcher.setOutAnimation(AnimationUtils.loadAnimation(this, android.R.anim.fade_out));
+		// 左侧滑入右侧滑出比淡入淡出效果更好。
+		// slide_in_left/slide_out_right is better than fade_in/fade_out
+		imageSwitcher.setInAnimation(AnimationUtils.loadAnimation(this, android.R.anim.slide_in_left));
+		imageSwitcher.setOutAnimation(AnimationUtils.loadAnimation(this, android.R.anim.slide_out_right));
 		
 		Gallery gallery = (Gallery) findViewById(R.id.gallery01);
 		gallery.setAdapter(new ImageAdapter(this));

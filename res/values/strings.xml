@@ -28,5 +28,6 @@
     <string name="test_asynctask">测试AsyncTask</string>
     <string name="test_gallery">测试Gallery</string>
     <string name="test_imageswitcher">测试ImageSwitcher</string>
+    <string name="test_gridview">测试GridView</string>
 
 </resources>
