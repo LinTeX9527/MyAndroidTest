@@ -151,7 +151,22 @@
             </intent-filter>
             
         </activity>			
+
 		
+		<!-- 测试Volley加载图片 -->
+		<activity 
+            android:name="com.lintex9527.network.VolleyTestActivity"
+            android:label="@string/test_volley"
+            android:launchMode="singleInstance"
+            >
+            
+            <intent-filter >
+                <action android:name="com.lintex9527.network.VolleyTestActivity"/>
+                
+                <category android:name="android.intent.category.DEFAULT"/>
+            </intent-filter>
+            
+        </activity>					
 		
     </application>
 
