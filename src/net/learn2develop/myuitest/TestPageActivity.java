@@ -105,12 +105,17 @@ public class TestPageActivity extends Activity {
 		// ≤‚ ‘œÓ ImageSwitcher
 		addTestItem(R.string.test_imageswitcher, "net.learn2develop.myuitest.ImageSwitcherTestActivity");
 		
+		// ≤‚ ‘œÓ ≤Àµ•
+		addTestItem(R.string.test_menu, "net.learn2develop.myuitest.MenuTestActivity");
+		
 		// ≤‚ ‘œÓ GridView
 		addTestItem(R.string.test_gridview, "net.learn2develop.myuitest.GridViewTestActivity");
 		
 		
 		// ≤‚ ‘œÓ Volley
 		addTestItem(R.string.test_volley, "com.lintex9527.network.VolleyTestActivity");
+		
+		
 	}
 	
 	protected void addTestItem(int idDescription, String action){

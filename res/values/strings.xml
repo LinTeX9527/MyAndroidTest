@@ -30,5 +30,6 @@
     <string name="test_imageswitcher">测试ImageSwitcher</string>
     <string name="test_gridview">测试GridView</string>
     <string name="test_volley">测试Volley网络请求库</string>
+    <string name="test_menu">测试菜单</string>
 
 </resources>

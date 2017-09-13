@@ -135,7 +135,25 @@
             </intent-filter>
             
         </activity>
-				
+
+		
+		<!-- 测试菜单  -->
+		<activity 
+            android:name="net.learn2develop.myuitest.MenuTestActivity"
+            android:label="@string/test_menu"
+            android:launchMode="singleInstance"
+            android:windowSoftInputMode="stateAlwaysVisible"
+            >
+            
+            <intent-filter >
+                <action android:name="net.learn2develop.myuitest.MenuTestActivity"/>
+                
+                <category android:name="android.intent.category.DEFAULT"/>
+            </intent-filter>
+            
+        </activity>	
+		
+						
 				
 		<!-- 测试异步工作 AsyncTask -->
 		<activity 
