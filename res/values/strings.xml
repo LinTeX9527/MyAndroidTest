@@ -17,6 +17,10 @@
     <!-- AsyncTaskTestActivity 中使用的文本资源  -->
     <string name="getwebpage">访问网页</string>
     
+    <!-- MenuTestActivity 中使用的文本资源  -->
+    <string name="btnImageSwitch">切换图片</string>
+    <string name="btnText">切换文字</string>
+    
     <!-- GalleryTestActivity 中使用的文本资源 -->
     <string name="photo_desc">妹子图</string>
     
