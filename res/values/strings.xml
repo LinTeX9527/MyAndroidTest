@@ -24,6 +24,12 @@
     <!-- GalleryTestActivity 中使用的文本资源 -->
     <string name="photo_desc">妹子图</string>
     
+    <!--  MyRecorderTestActivity 中使用的文本资源  -->
+    <string name="btnStart">开始录音</string>
+    <string name="btnStop">停止录音</string>
+    <string name="btnPlay">播放录音</string>
+    <string name="btnFinish">停止播放</string>
+    
     <!-- 各个活动的描述性语句 -->
     <string name="test_autocomplete">测试AutoCompleteTextView</string>
     <string name="test_image">测试ImageView</string>
@@ -35,5 +41,8 @@
     <string name="test_gridview">测试GridView</string>
     <string name="test_volley">测试Volley网络请求库</string>
     <string name="test_menu">测试菜单</string>
+    <string name="test_audiorecorder">测试录音机</string>
+    <string name="test_mediarecord">官方例程MediaRecord</string>
+
 
 </resources>

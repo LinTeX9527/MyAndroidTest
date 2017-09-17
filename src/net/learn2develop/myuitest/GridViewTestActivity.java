@@ -6,6 +6,7 @@ package net.learn2develop.myuitest;
 import android.app.Activity;
 import android.content.Context;
 import android.os.Bundle;
+import android.view.Display;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.AdapterView;
@@ -16,6 +17,12 @@ import android.widget.AdapterView.OnItemClickListener;
 import android.widget.GridView;
 
 /**
+ * 为什么不工作？
+ * 参见：
+ * http://blog.csdn.net/jiangliloveyou/article/details/11218555
+ * 
+ * https://developer.android.com/guide/topics/media/mediarecorder.html
+ * 
  * @author LinTeX9527
  *
  */
@@ -44,7 +51,6 @@ public class GridViewTestActivity extends Activity {
 			@Override
 			public void onItemClick(AdapterView<?> parent, View view,
 					int position, long id) {
-				// TODO Auto-generated method stub
 				Toast.makeText(getBaseContext(), "选中了" + position, Toast.LENGTH_SHORT).show();
 			}
 		});
@@ -78,8 +84,13 @@ public class GridViewTestActivity extends Activity {
 			ImageView imageView;
 			
 			if (convertView == null){
+				
+				Display display = getWindowManager().getDefaultDisplay();
+				@SuppressWarnings("deprecation")
+				int width = display.getWidth() / 4;
+				
 				imageView = new ImageView(context);
-				imageView.setLayoutParams(new GridView.LayoutParams(85, 85));
+				imageView.setLayoutParams(new GridView.LayoutParams(width, width));
 				imageView.setScaleType(ImageView.ScaleType.CENTER_CROP);
 				imageView.setPadding(5, 5, 5, 5);
 			} else {

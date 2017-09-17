@@ -10,6 +10,8 @@
     
     <!-- 访问网络必须要添加的权限 -->
     <uses-permission android:name="android.permission.INTERNET"/>
+    <uses-permission android:name="android.permission.RECORD_AUDIO"/>
+    <uses-permission android:name="android.permission.WRITE_EXTERNAL_STORAGE"/>
 
     <application
         android:allowBackup="true"
@@ -184,7 +186,35 @@
                 <category android:name="android.intent.category.DEFAULT"/>
             </intent-filter>
             
-        </activity>					
+        </activity>		
+        
+		
+		<!-- 测试录音机 -->
+		<activity 
+            android:name="com.lintex9527.recorderplayer.MyRecorderTestActivity"
+            android:label="@string/test_audiorecorder"
+            android:launchMode="singleInstance"
+            >
+            <intent-filter >
+                <action android:name="com.lintex9527.recorderplayer.MyRecorderTestActivity"/>
+                
+                <category android:name="android.intent.category.DEFAULT"/>
+            </intent-filter>
+        </activity>
+
+		<!-- 官方例程 -->
+		<activity 
+            android:name="com.lintex9527.recorderplayer.AudioRecordTestActivity"
+            android:label="@string/test_audiorecorder"
+            android:launchMode="singleInstance"
+            >
+            <intent-filter >
+                <action android:name="com.lintex9527.recorderplayer.AudioRecordTestActivity"/>
+                
+                <category android:name="android.intent.category.DEFAULT"/>
+            </intent-filter>
+        </activity>
+		
 		
     </application>
 

@@ -14,7 +14,6 @@ import android.widget.AdapterView;
 import android.widget.AdapterView.OnItemClickListener;
 import android.widget.ListView;
 import android.widget.SimpleAdapter;
-import android.widget.TextView;
 import android.widget.Toast;
 
 /**
@@ -115,6 +114,12 @@ public class TestPageActivity extends Activity {
 		// 测试项 Volley
 		addTestItem(R.string.test_volley, "com.lintex9527.network.VolleyTestActivity");
 		
+		// 测试项 录音机
+		addTestItem(R.string.test_audiorecorder, "com.lintex9527.recorderplayer.MyRecorderTestActivity");
+		
+		
+		// 官方例程，使用 MediaRecord 录制音频
+		addTestItem(R.string.test_mediarecord, "com.lintex9527.recorderplayer.AudioRecordTestActivity");
 		
 	}
 	
